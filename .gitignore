@@ -1,0 +1,8 @@
+# OS / Editor
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Tooling
+node_modules/
+.vercel/
