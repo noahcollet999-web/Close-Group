@@ -1116,6 +1116,254 @@
       </div>
     </section>
   </div>
+  <section class="cg-proj-section">
+    <style>
+      .cg-proj-section {
+        padding: 100px 24px;
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+      }
+      .cg-proj-head {
+        max-width: 640px;
+        margin-bottom: 48px;
+      }
+      .cg-proj-head .cg-heading { margin-bottom: 14px; }
+      .cg-proj-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+      }
+      .cg-proj-card {
+        position: relative;
+        border-radius: 22px;
+        overflow: hidden;
+        min-height: 360px;
+        display: flex;
+        align-items: flex-end;
+        border: 1px solid rgba(255,255,255,0.08);
+        isolation: isolate;
+        transition: border-color 0.4s, box-shadow 0.4s;
+      }
+      .cg-proj-card video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 0;
+        transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .cg-proj-overlay {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background: linear-gradient(to top,
+          rgba(0,0,0,0.90) 0%,
+          rgba(0,0,0,0.55) 42%,
+          rgba(0,0,0,0.15) 100%);
+        transition: backdrop-filter 0.5s, background 0.5s;
+      }
+      .cg-proj-card:hover { border-color: rgba(255,255,255,0.18); box-shadow: 0 24px 60px rgba(0,0,0,0.55); }
+      .cg-proj-card:hover video { transform: scale(1.07); }
+      .cg-proj-card:hover .cg-proj-overlay {
+        backdrop-filter: blur(3px) saturate(125%);
+        -webkit-backdrop-filter: blur(3px) saturate(125%);
+        background: linear-gradient(to top,
+          rgba(0,0,0,0.88) 0%,
+          rgba(0,0,0,0.5) 45%,
+          rgba(255,255,255,0.04) 100%);
+      }
+      .cg-proj-content {
+        position: relative;
+        z-index: 2;
+        padding: 32px 32px 30px;
+        width: 100%;
+      }
+      .cg-proj-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.55);
+        margin-bottom: 14px;
+      }
+      .cg-proj-kicker::before {
+        content: '';
+        width: 16px;
+        height: 1px;
+        background: rgba(255,255,255,0.5);
+      }
+      .cg-proj-title {
+        font-size: clamp(20px, 2.2vw, 26px);
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        color: #fff;
+        margin: 0 0 10px;
+        line-height: 1.15;
+      }
+      .cg-proj-desc {
+        font-size: 14px;
+        color: rgba(255,255,255,0.62);
+        line-height: 1.68;
+        margin: 0 0 20px;
+        max-width: 480px;
+      }
+      .cg-proj-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 11px 20px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.18);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: background 0.3s, gap 0.3s, border-color 0.3s;
+      }
+      .cg-proj-btn:hover {
+        background: rgba(255,255,255,0.16);
+        border-color: rgba(255,255,255,0.3);
+        gap: 12px;
+      }
+      .cg-proj-btn svg {
+        width: 14px;
+        height: 14px;
+        stroke: currentColor;
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .cg-proj-anim .cg-proj-card {
+        opacity: 0;
+        transform: translateY(26px);
+        transition: opacity 0.6s cubic-bezier(0.22,1,0.36,1),
+                    transform 0.6s cubic-bezier(0.22,1,0.36,1),
+                    border-color 0.4s, box-shadow 0.4s;
+      }
+      .cg-proj-anim .cg-proj-card.cg-proj-in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      @media (max-width: 760px) {
+        .cg-proj-section { padding: 72px 16px; }
+        .cg-proj-grid { grid-template-columns: 1fr; gap: 14px; }
+        .cg-proj-card { min-height: 300px; }
+        .cg-proj-content { padding: 24px 22px 22px; }
+      }
+    </style>
+
+    <div class="cg-proj-head">
+      <span class="cg-label">Einsatzbereiche</span>
+      <h2 class="cg-heading">In diesen Projekten<br>wirst du eingesetzt</h2>
+      <p class="cg-subtext" style="max-width:560px;">Arbeite in spannenden Branchen mit vorqualifizierten Interessenten und sammle praktische Erfahrung in echten Kundenprojekten.</p>
+    </div>
+
+    <div class="cg-proj-grid">
+      <!-- Projekt 1: Platzhalter-Video -> ersetzen mit: luxuriöses Beratungsgespräch / Business-Meeting / hochwertiges Büro -->
+      <article class="cg-proj-card">
+        <video autoplay muted loop playsinline preload="metadata">
+          <source src="videos/video-output-E8695826-F7E0-446B-A88B-E440526B829B-transcode.webm" type="video/webm">
+          <source src="videos/video-output-E8695826-F7E0-446B-A88B-E440526B829B-transcode.mp4" type="video/mp4">
+        </video>
+        <div class="cg-proj-overlay"></div>
+        <div class="cg-proj-content">
+          <span class="cg-proj-kicker">B2C · 5.000 – 10.000 €</span>
+          <h3 class="cg-proj-title">B2C Beratungsdienstleistungen</h3>
+          <p class="cg-proj-desc">Führe Verkaufsgespräche für hochwertige Beratungsangebote im Preisbereich zwischen 5.000 € und 10.000 €. Du sprichst mit vorqualifizierten Interessenten und begleitest sie professionell durch den Entscheidungsprozess.</p>
+          <a href="contact-us.html" class="cg-proj-btn">Mehr erfahren
+            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Projekt 2: Platzhalter-Video -> ersetzen mit: Marketing-Agentur / Dashboards / Social-Media-Kampagnen -->
+      <article class="cg-proj-card">
+        <video autoplay muted loop playsinline preload="metadata">
+          <source src="videos/video-output-E3EA9E1A-CEE3-429B-95F3-7F07411C88C8-2-transcode.webm" type="video/webm">
+          <source src="videos/video-output-E3EA9E1A-CEE3-429B-95F3-7F07411C88C8-2-transcode.mp4" type="video/mp4">
+        </video>
+        <div class="cg-proj-overlay"></div>
+        <div class="cg-proj-content">
+          <span class="cg-proj-kicker">B2B · Marketing</span>
+          <h3 class="cg-proj-title">Marketingdienstleistungen (B2B)</h3>
+          <p class="cg-proj-desc">Unterstütze Unternehmen bei der Vermittlung moderner Marketinglösungen und führe Gespräche mit Unternehmern, die ihr Wachstum vorantreiben möchten.</p>
+          <a href="contact-us.html" class="cg-proj-btn">Mehr erfahren
+            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Projekt 3: Platzhalter-Video -> ersetzen mit: moderne Wohnhäuser / Luxusimmobilien / Besichtigungen -->
+      <article class="cg-proj-card">
+        <video autoplay muted loop playsinline preload="metadata">
+          <source src="videos/video-output-BD298BE9-D905-42D6-8EC3-35BCDDD3365D-transcode.webm" type="video/webm">
+          <source src="videos/video-output-BD298BE9-D905-42D6-8EC3-35BCDDD3365D-transcode.mp4" type="video/mp4">
+        </video>
+        <div class="cg-proj-overlay"></div>
+        <div class="cg-proj-content">
+          <span class="cg-proj-kicker">Immobilien</span>
+          <h3 class="cg-proj-title">Immobilien</h3>
+          <p class="cg-proj-desc">Begleite Interessenten rund um den Verkauf und die Vermarktung von Immobilienprojekten und unterstütze professionelle Immobilienberater im Vertriebsprozess.</p>
+          <a href="contact-us.html" class="cg-proj-btn">Mehr erfahren
+            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Projekt 4: Platzhalter-Video -> ersetzen mit: Privatjet am Flughafen / Boarding / exklusive Aviation -->
+      <article class="cg-proj-card">
+        <video autoplay muted loop playsinline preload="metadata">
+          <source src="videos/video-output-27CB8E27-333F-4E85-AC8A-58A8CDBC128C-transcode.webm" type="video/webm">
+          <source src="videos/video-output-27CB8E27-333F-4E85-AC8A-58A8CDBC128C-transcode.mp4" type="video/mp4">
+        </video>
+        <div class="cg-proj-overlay"></div>
+        <div class="cg-proj-content">
+          <span class="cg-proj-kicker">Premium · Aviation</span>
+          <h3 class="cg-proj-title">Privatjets</h3>
+          <p class="cg-proj-desc">Arbeite im exklusiven Premium-Segment und begleite Interessenten bei der Vermittlung individueller Privatjet-Lösungen und hochwertiger Flugdienstleistungen.</p>
+          <a href="contact-us.html" class="cg-proj-btn">Mehr erfahren
+            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+          </a>
+        </div>
+      </article>
+    </div>
+
+    <script>
+      (function () {
+        function init() {
+          var grid = document.querySelector('.cg-proj-grid');
+          if (!grid) return;
+          grid.classList.add('cg-proj-anim');
+          var cards = grid.querySelectorAll('.cg-proj-card');
+          var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                var card = entry.target;
+                var idx = Array.prototype.indexOf.call(cards, card);
+                setTimeout(function () { card.classList.add('cg-proj-in'); }, idx * 90);
+                io.unobserve(card);
+              }
+            });
+          }, { threshold: 0.15 });
+          cards.forEach(function (c) { io.observe(c); });
+        }
+        document.readyState === 'loading'
+          ? document.addEventListener('DOMContentLoaded', init)
+          : init();
+      })();
+    </script>
+  </section>
   <div id="Support" class="section">
     <section class="logos-title-large">
       <div class="container">
