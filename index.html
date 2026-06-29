@@ -1344,6 +1344,132 @@
         <div class="clients-wrapper"><img src="images/Screenshot_2025-06-14_at_08.09.52-removebg-preview.png" loading="lazy" width="103" sizes="(max-width: 479px) 100vw, 103px" alt="Arise Health logo" srcset="images/Screenshot_2025-06-14_at_08.09.52-removebg-preview-p-500.png 500w, images/Screenshot_2025-06-14_at_08.09.52-removebg-preview.png 609w" class="clients-image"><img src="images/Screenshot_2025-06-14_at_08.10.12-removebg-preview.png" loading="lazy" width="123" sizes="(max-width: 479px) 100vw, 123px" alt="The Paak logo" srcset="images/Screenshot_2025-06-14_at_08.10.12-removebg-preview-p-500.png 500w, images/Screenshot_2025-06-14_at_08.10.12-removebg-preview.png 612w" class="clients-image"><img src="images/Screenshot_2025-06-14_at_08.14.14-removebg-preview.png" loading="lazy" width="113" sizes="(max-width: 479px) 100vw, 113px" alt="OE logo" srcset="images/Screenshot_2025-06-14_at_08.14.14-removebg-preview-p-500.png 500w, images/Screenshot_2025-06-14_at_08.14.14-removebg-preview.png 560w" class="clients-image"><img src="images/Screenshot_2025-06-14_at_08.11.22-removebg-preview.png" loading="lazy" width="188" sizes="(max-width: 479px) 100vw, 188px" alt="2020INC logo" srcset="images/Screenshot_2025-06-14_at_08.11.22-removebg-preview-p-500.png 500w, images/Screenshot_2025-06-14_at_08.11.22-removebg-preview.png 767w" class="clients-image"><img src="images/Screenshot_2025-06-14_at_08.20.55-removebg-preview.png" loading="lazy" width="97" sizes="(max-width: 479px) 100vw, 97px" alt="Ephicient logo" srcset="images/Screenshot_2025-06-14_at_08.20.55-removebg-preview-p-500.png 500w, images/Screenshot_2025-06-14_at_08.20.55-removebg-preview.png 623w" class="clients-image"></div>
       </div>
     </section>
+    <section class="cg-partner-section">
+      <style>
+        .cg-partner-section { padding: 60px 24px 120px; }
+        .cg-partner-wrap { max-width: 1100px; margin: 0 auto; }
+        .cg-partner-card {
+          position: relative;
+          display: flex;
+          align-items: center;
+          gap: 48px;
+          background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
+          backdrop-filter: blur(44px) saturate(180%);
+          -webkit-backdrop-filter: blur(44px) saturate(180%);
+          border: 1px solid rgba(255,255,255,0.1);
+          border-radius: 28px;
+          padding: 44px 48px;
+          box-shadow: 0 16px 50px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.2);
+          overflow: hidden;
+          transition: border-color 0.4s, transform 0.4s, box-shadow 0.4s;
+        }
+        .cg-partner-card::before {
+          content: '';
+          position: absolute;
+          top: 0; left: 0; right: 0;
+          height: 55%;
+          background: linear-gradient(to bottom, rgba(255,255,255,0.07), transparent);
+          pointer-events: none;
+        }
+        .cg-partner-card:hover {
+          border-color: rgba(255,255,255,0.18);
+          transform: translateY(-3px);
+          box-shadow: 0 24px 64px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.25);
+        }
+        .cg-partner-info { flex: 1 1 44%; min-width: 0; position: relative; z-index: 1; }
+        .cg-partner-visual { flex: 1 1 56%; min-width: 0; position: relative; z-index: 1; }
+        .cg-partner-visual img {
+          width: 100%;
+          height: auto;
+          display: block;
+          border-radius: 14px;
+          border: 1px solid rgba(255,255,255,0.12);
+          box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+        }
+        .cg-partner-logo {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          margin-bottom: 22px;
+        }
+        .cg-partner-logo img { width: auto; height: 38px; object-fit: contain; }
+        .cg-partner-name {
+          font-size: 22px;
+          font-weight: 800;
+          color: #fff;
+          letter-spacing: -0.02em;
+          margin: 0 0 4px;
+          line-height: 1.1;
+        }
+        .cg-partner-tag {
+          font-size: 18px;
+          font-weight: 700;
+          color: #fff;
+          letter-spacing: -0.01em;
+          margin: 0 0 14px;
+          line-height: 1.25;
+        }
+        .cg-partner-desc {
+          font-size: 14px;
+          color: rgba(255,255,255,0.55);
+          line-height: 1.7;
+          margin: 0 0 18px;
+          max-width: 620px;
+        }
+        .cg-partner-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+        .cg-partner-pill {
+          font-size: 11px;
+          font-weight: 600;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
+          color: rgba(255,255,255,0.6);
+          background: rgba(255,255,255,0.05);
+          border: 1px solid rgba(255,255,255,0.1);
+          border-radius: 999px;
+          padding: 7px 14px;
+        }
+        .cg-partner-link {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 12px;
+          font-weight: 600;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: #fff;
+          text-decoration: none;
+        }
+        .cg-partner-link svg {
+          width: 14px; height: 14px;
+          stroke: currentColor; fill: none;
+          stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+          transition: transform 0.3s;
+        }
+        .cg-partner-link:hover svg { transform: translateX(4px); }
+        @media (max-width: 860px) {
+          .cg-partner-card { flex-direction: column; align-items: stretch; gap: 28px; padding: 32px 26px; }
+          .cg-partner-info, .cg-partner-visual { flex: 1 1 auto; }
+          .cg-partner-desc { max-width: 100%; }
+          .cg-partner-logo img { height: 34px; }
+        }
+      </style>
+      <div class="cg-partner-wrap">
+        <span class="cg-label">Partner</span>
+        <h2 class="cg-heading" style="font-size:clamp(24px,3vw,40px);margin-bottom:32px;">Unsere Partner</h2>
+        <div class="cg-partner-card">
+          <div class="cg-partner-info">
+            <div class="cg-partner-logo"><img src="images/MentorSpace_Logo.png" alt="MentorSpace" loading="lazy"></div>
+            <p class="cg-partner-desc">Die All-in-One-Betriebssoftware für Coaches und Creator: Kurse hochladen, Mitglieder verwalten, Zahlungen abwickeln und eine eigene Community aufbauen.</p>
+            <a href="https://mentorspace.net/" target="_blank" rel="noopener" class="cg-partner-link">Mehr erfahren
+              <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+            </a>
+          </div>
+          <div class="cg-partner-visual">
+            <img src="images/mentorspaceboard.png" alt="MentorSpace Dashboard" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
     <div class="base-container w-container">
       <div class="contacts-wrap">
         <div class="contacts-content-wrapper-3">
