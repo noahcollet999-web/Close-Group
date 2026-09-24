@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/consulting/",
+      "destination": "/consulting",
+      "permanent": false
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/consulting",
+      "destination": "/consulting.html"
+    }
+  ]
+}

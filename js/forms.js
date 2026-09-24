@@ -1,8 +1,10 @@
 // Verbindet die Webflow-Formulare mit dem Myno CRM-Webhook
 // (Leads landen im CRM) und optional mit /api/apply (E-Mail via Resend).
 (function () {
-  var MYNO_WEBHOOK =
+  var MYNO_WEBHOOK_PARTNER =
     "https://www.myno.co/api/webhooks/website-form/f79f6033fe1bbd026b7000156e7168b9a8da7473af6f17da";
+  var MYNO_WEBHOOK_B2B =
+    "https://www.myno.co/api/webhooks/website-form/601d950806c799adc2bbe9bc4b1c712cbf02ed6fc9754c14";
   var EMAIL_ENDPOINT = "/api/apply";
   var SELECTOR = "form.contact-us-form, form.form-wrap";
 
@@ -23,6 +25,10 @@
       website: getVal(form, ["website"]),
       page: location.pathname,
     };
+  }
+
+  function isB2bPage() {
+    return /\/consulting(?:\.html)?\/?$/.test(location.pathname);
   }
 
   function postJson(url, payload) {
@@ -60,6 +66,7 @@
     }
 
     // Empfohlene Feldnamen für Myno website-form Webhook
+    var b2b = isB2bPage();
     var leadPayload = {
       name: data.name,
       email: data.email,
@@ -68,7 +75,7 @@
       source: "theclosegroup.de",
     };
 
-    postJson(MYNO_WEBHOOK, leadPayload)
+    postJson(b2b ? MYNO_WEBHOOK_B2B : MYNO_WEBHOOK_PARTNER, leadPayload)
       .then(function () {
         // E-Mail parallel; Fehler dort sollen CRM-Erfolg nicht überschreiben
         return postJson(EMAIL_ENDPOINT, data).catch(function () {
